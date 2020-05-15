@@ -19,6 +19,8 @@ import store from './store/index'
 // 引入api
 import api from '@/api/api.js'
 
+import './utils/rem'
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

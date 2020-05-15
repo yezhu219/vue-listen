@@ -34,6 +34,7 @@ module.exports = {
     cacheBusting: true,
 
     cssSourceMap: true
+
   },
 
   build: {

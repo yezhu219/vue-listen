@@ -15,9 +15,10 @@
         <p class="fz8 c-00b mb-10">倾刻到来</p>
         <p class="fz10 c-00b">眼界，能看见机会；行动，将机会变现</p>
       </div>
+      <div class="tex-1 c-ff"><div class="text-r mb-5"><span class="fw-600 c-00b">零一方体</span>邀你 </div><div class="text-l"> 优先参与未来 </div></div>
     </div>
     <div class="bg-i-2">
-      <div class="s1 fsb mb-10">
+      <div class="s1 fsb mb-10" @click="$router.push('/goods')">
         <div class="s1-text">
           <h4>云立方C01</h4>
           <h5>挖矿蓝海中的旗舰矿机 </h5>
@@ -26,11 +27,11 @@
         <img src="../assets/img/i-1.png" alt="">
       </div>
       <div class="fsb">
-        <div class="s2 fsb">
+        <div class="s2 fsb" @click="$router.push('/about')">
           <div class="s2-text">我们 <br> 用<i class="c-00b">01</i> <br> 创造价值</div>
           <img src="../assets/img/s2.png" alt="">
         </div>
-        <div class="s3">
+        <div class="s3" @click="$router.push('/trust')">
           <div class="s3-text">
             <h4>一站式 <br><span class="c-00b fw-600">托管 </span></h4>
             <p>
@@ -73,6 +74,17 @@ export default {
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    .tex-1 {
+      position: absolute;
+      width: 180px;
+      height: 70px;
+      background-image: url(../assets/img/bg-m.png);
+      font-size: 18px;
+      top: 312px;
+      right: 79px;
+      color: #fff;
+      padding: 15px;
+    }
     .top {
       height: 475px;
       /*width: 960px;*/

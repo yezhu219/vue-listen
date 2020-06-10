@@ -1,6 +1,6 @@
 <template>
   <div class="header fsb" :class="{isBlack:!black,'bg-f':!black}">
-    <div class="logo">
+    <div class="logo cp" @click="toIndex">
       <img src="../assets/img/logo-b.png" alt="" v-if="black">
       <img src="../assets/img/logo.png" alt="" v-else>
     </div>
@@ -77,6 +77,9 @@ export default {
   methods: {
     handleSelect() {
 
+    },
+    toIndex() {
+      this.$router.push('/')
     },
     goDetail(url) {
       this.$router.push(url)

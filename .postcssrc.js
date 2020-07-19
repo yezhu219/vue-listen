@@ -7,7 +7,7 @@ module.exports = {
     // to edit target browsers: use "browserslist" field in package.json
     "autoprefixer": {},
     "postcss-pxtorem": {
-      "rootValue": 960,
+      "rootValue": 1920,
       "propList": ["*"],
       "selectorBlackList": [
         ".el-",

@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100vh;overflow-y: scroll" ref="container" @scroll="changeScroll">
-    <div class="page-index fz30" >
+    <div class="page-index fz30" :class="[showFooter?'pdb':'']">
       <myHeader class="fix-header" :isScroll="isScroll"></myHeader>
       <div class="s1">
         <div class="line"></div>
@@ -12,111 +12,148 @@
 
         <div class="df">
           <div class="btn bg-d7 c-47 mr-40">Obtain Listen</div>
-          <div class="btn btn-boder c-d7 df-ac"><img src="../assets/img/icon-play.png" alt="" class="icon-play"> Open Listen</div>
+          <!-- <div class="btn btn-boder c-d7 df-ac"><img src="../assets/img/icon-play.png" alt="" class="icon-play"> Open Listen</div> -->
         </div>
-
-      </div>
-      <div class="s2 text-c">
-        <h3 class="s-title">Products on Listen</h3>
-        <p class="c-333 fz24">Data is no longer kept and developed by centralized organizations. The data <br>
-          will be stored in a decentralized manner and authorized by the user.</p>
-      </div>
-      <div class="s3">
-        <div class="card pl card-1">
-          <div class="left pd">
-            <img src="../assets/img/i1-l.jpg" alt="" class="img-l">
-            <img src="../assets/img/i1-s.png" alt="" class="img-s">
-          </div>
-          <div class="right">
-            <div class="index">01</div>
-            <div class="c-d7 title mb-20">Data <br> privacy trends</div>
-            <div class="line-s"></div>
-            <div class="p-item">Data is no longer kept and developed by centralized organizations. The data will be stored in a decentralized manner and authorized by the user.</div>
-            <div class="p-item">Personal privacy is stored locally and encrypted, and users are authorized to use it for a fee.</div>
-            <div class="p-item">The right to speak and decide are dispersedly controlled, users decide the survival of groups, and group awareness is the best way to resist censorship.</div>
-          </div>
-        </div>
-        <div class="card pl card-2 fsb">
-          <div class="right">
-            <div class="index">02</div>
-            <div class="c-d7 title mb-20">Own value<br>
-              social network</div>
-            <div class="line-s"></div>
-            <div class="p-item">LT bears the value of LISTEN  social network. Every user no <br>longer just uses social network, but really owns it.</div>
-            <div class="p-item">Listening to valuable expressions, expressing valuable listening.</div>
-            <div class="p-item">Every user is the governor of LISTEN underlying blockchain.</div>
-          </div>
-          <div class="imgbox">
-            <img src="../assets/img/i2-l.jpg" alt="" class="i1">
-            <img src="../assets/img/i2-s.png" alt="" class="i2">
-          </div>
-        </div>
-        <div class="card pl card-3">
-          <div class="imgbox">
-            <img src="../assets/img/i3-l.jpg" alt="" class="i3">
-            <img src="../assets/img/i3-s.png" alt="" class="i4">
-          </div>
-          <div class="right">
-            <div class="index">03</div>
-            <div class="c-d7 title mb-20">Encrypted <br>
-              communication</div>
-            <div class="line-s"></div>
-            <div class="p-item">In end-to-end encrypted communications, decentralization is <br> the best way to resist censorship.</div>
-            <div class="p-item">No ads, no tracking.</div>
-          </div>
-        </div>
-        <div class="card pl card-4">
-          <div class="right">
-            <div class="index">04</div>
-            <div class="c-d7 title mb-20">Value <br>
-              transfer</div>
-            <div class="line-s"></div>
-            <div class="p-item">Blockchain-based token sending is as simple as sending a <br> Message.</div>
-            <div class="p-item">No barriers to borders, no peer-to-peer payment by intermediate service <br> providers.</div>
-            <div class="p-item">Adapt to multiple stable currency payment networks around the world.</div>
-          </div>
-          <div class="imgbox">
-            <img src="../assets/img/i4-l.jpg" alt="" class="i5">
-            <img src="../assets/img/i4-s.png" alt="" class="i6">
-          </div>
+        <div class="small-i">
+          <img src="../assets/img/s.png" alt="">
+          <img src="../assets/img/b.png" alt="" class="btx">
         </div>
       </div>
-      <div class="s4">
-        <div class="top df-ac">
-          <div class="line-a mr-20"></div>
-          <div class="text">Product download</div>
-        </div>
-        <h5>Download Listen</h5>
-        <p>Listen, as a voice social software, is very different from other communication tools, and is also different from the podcast software. It supports social networking of acquaintances, including social methods such as voice, pictures, text, and video.</p>
-        <div class="df">
-          <div class="btn-l btn">Ios user</div>
-          <div class="btn-a btn">Android user</div>
+      <swiper :options="swiperOptions" ref="mySwiper">
+          <swiper-slide class="swiper-slide" >
+              <div class="page p1">
+                <div class="item">
+                  <div>
+                    <div class="i-title">- Value transfer</div>
+                    <div class="i-li">Data is no longer kept and developed by centralized organizations. The data will be stored in a decentralized manner and authorized by the user.</div>
+                    <div class="i-li">Personal privacy is stored locally and encrypted, and users are authorized to use it for a fee.</div>
+                    <div class="i-li">The right to speak and decide are dispersedly controlled, users decide the survival of groups, and group awareness is the best way to resist censorship.</div>
+                  </div>
+                  <img src="../assets/img/s1.png" alt="" class="s-img">
+                  <div class="dot">
+                    <div class="dot-t df-ac">
+                      <div>01</div>
+                      <div class="arr">
+                        <img src="../assets/img/up.png" alt="" class="pre"  @click="topre(0)">
+                        <img src="../assets/img/down.png" alt="" class="next" @click="tonext(0)">
+                      </div>
+                    </div>
+                    <div class="dot-b">
+                      <div class="circle active"></div>
+                      <div class="circle hide"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </swiper-slide>
+          <swiper-slide class="swiper-slide" >
+              <div class="page p2">
+                <div class="item">
+                  <div>
+                    <div class="i-title">- Own valuesocial network</div>
+                    <div class="i-li">LT bears the value of LISTEN social network. Every user no longer just uses social network, but really owns it.</div>
+                    <div class="i-li">Listening to valuable expressions, expressing valuable listening.</div>
+                    <div class="i-li">Every user is the governor of LISTEN underlying blockchain.</div>
+                  </div>
+                  <img src="../assets/img/s2.png" alt="" class="s-img">
+                  <div class="dot">
+                    <div class="dot-t df-ac">
+                      <div>02</div>
+                      <div class="arr">
+                        <img src="../assets/img/up.png" alt="" class="pre" @click="topre(1)">
+                        <img src="../assets/img/down.png" alt="" class="next" @click="tonext(1)">
+                      </div>
+                    </div>
+                    <div class="dot-b">
+                      <div class="circle"></div>
+                      <div class="circle active"></div>
+                      <div class="circle hide"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </swiper-slide>
+          <swiper-slide class="swiper-slide" >
+              <div class="page p3">
+                <div class="item">
+                  <div>
+                    <div class="i-title">- Encrypted communication</div>
+                    <div class="i-li">In end-to-end encrypted communications, decentralization is the best way to resist censorship.</div>
+                    <div class="i-li">No ads, no tracking.</div>
+                  </div>
+                  <img src="../assets/img/s3.png" alt="" class="s-img">
+                  <div class="dot">
+                    <div class="dot-t df-ac">
+                      <div>03</div>
+                      <div class="arr">
+                        <img src="../assets/img/up.png" alt="" class="pre"  @click="topre(2)">
+                        <img src="../assets/img/down.png" alt="" class="next" @click="tonext(2)">
+                      </div>
+                    </div>
+                    <div class="dot-b">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle active"></div>
+                      <div class="circle hide"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </swiper-slide>
+          <swiper-slide class="swiper-slide" >
+              <div class="page p4">
+                <div class="item">
+                  <div>
+                    <div class="i-title">- Value transfer</div>
+                    <div class="i-li">Blockchain-based token sending is as simple as sending a Message.</div>
+                    <div class="i-li">No barriers to borders, no peer-to-peer payment by intermediate service providers.</div>
+                    <div class="i-li">Adapt to multiple stable currency payment networks around the world.</div>
+                  </div>
+                  <img src="../assets/img/s4.png" alt="" class="s-img">
+                  <div class="dot">
+                    <div class="dot-t df-ac">
+                      <div>04</div>
+                      <div class="arr">
+                        <img src="../assets/img/up.png" alt="" class="pre"  @click="topre(3)">
+                        <img src="../assets/img/down.png" alt="" class="next" @click="tonext(3)">
+                      </div>
+                    </div>
+                    <div class="dot-b">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle hide"></div>
+                      <div class="circle active"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </swiper-slide>
+      </swiper>
+      <div class="down" ref="down">
+        <div class="text">
+          <div class="d-title">Download Listen</div>
+          <p>Listen, as a voice social software, is very different from other communication tools, and is also different from the podcast software. It supports social networking of acquaintances, including social methods such as voice, pictures, text, and video.</p>
+          <div class="qr-box">
+            <div class="qr">
+              <div class="img"></div>
+              <h6>Ios user</h6>
+            </div>
+            <div class="qr">
+              <div class="img"></div>
+              <h6>Android user</h6>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="s5 s4">
-        <div class="top df-ac">
-          <div class="line-a mr-20"></div>
-          <div class="text">white paper</div>
-        </div>
-        <h5>Privacy-protected data transaction agreement</h5>
-        <p>Listen guarantees the reliable execution of smart contracts while keeping the data secretly.Confidential contracts run in miner nodes with Trusted Computing capable hardwares, which guarantees the secrecy of the contract data</p>
-        <div class="df">
-          <div class="btn-l btn">White Paper-Chinese</div>
-          <div class="btn-l btn">White Paper-English</div>
-        </div>
-      </div>
-      <div class="s6 text-c">
-        <h5>Frequently asked questions</h5>
-        <h6>Web3.0 Parallel Chain of Cross-Chain Polka Ecology</h6>
-        <h3>新用户如何获取LT?</h3>
-        <p>新用户直接到水⻰头领取</p>
-        <h3>用户没有LT时，是不是不能说话了?</h3>
-        <p>新用户直接到水⻰头领取</p>
-        <h3>Listen的使用会不会很难?</h3>
-        <p>并不会，因为是去中心化产品，其实跟普通的社交软件是差不多的。</p>
-        <h3>Listen底层区块链技术是独创的吗?</h3>
-        <p>Listen底层区块链是基于Substrate开发的应用公链，是Web3.0跨链波卡生态的平行链。</p>
-      </div>
+      <myFooter v-if="showFooter"></myFooter>
+      <!-- <myFooter v-if="isScroll"></myFooter> -->
     </div>
     <!-- <div class="cover" v-if="show"> -->
     <div class="cover" :class="{fadeout:!show}" >
@@ -136,20 +173,55 @@
 
 <script>
   import myHeader from '@/components/header'
+  import myFooter from '@/components/footer'
+  import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+  import 'swiper/swiper.less'
 export default {
   data() {
     return {
       isScroll:false,
-      show:true
+      show:true,
+      showFooter:false,
+      swiperOptions: {
+        // pagination: {
+        //   el: '.swiper-pagination'
+        // },
+        // navigation: {
+        //   nextEl: '.swiper-button-next',
+        //   prevEl: '.swiper-button-prev',
+        // },
+      }
     }
   },
   created() {
 
   },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper
+    }
+  },
   methods:{
+    tonext(data) {
+      this.swiper.slideTo(data+1, 1000, false)
+    },
+    topre(data) {
+      this.swiper.slideTo(data-1, 1000, false)
+    },
     changeScroll() {
       let top = this.$refs.container.scrollTop
+      let downOffset = this.$refs.down.offsetTop
+      let height = document.body.offsetHeight
       console.log(top)
+      if(top+200>height) {
+        this.showFooter = true
+      }else {
+        this.showFooter = false
+      }
+       if(top+60>=downOffset) {
+        this.showFooter = false
+      }
+
       if(top>50) {
         this.isScroll = true
       }else {
@@ -161,7 +233,10 @@ export default {
     }
   },
   components: {
-    myHeader
+    myHeader,
+    myFooter,
+    Swiper,
+    SwiperSlide
   }
 }
 </script>
@@ -216,6 +291,10 @@ export default {
     }
   }
   .page-index {
+    padding-bottom: 0;
+    &.pdb {
+      padding-bottom: 200px;
+    }
     .fix-header {
       position: fixed;
       top: 0;
@@ -224,14 +303,32 @@ export default {
     }
    .s1 {
      width: 100%;
-     height: 1080px;
+     height: 100vh;
      background-image: url(../assets/img/bg-1.jpg);
      background-size: 100% 100%;
      background-repeat: no-repeat;
      position: relative;
      padding-top: 180px;
      padding-left: 100px;
-     margin-bottom: 120px;
+     .small-i {
+       position: absolute;
+       right: 130px;
+       bottom: 200px;
+       img {
+         width: 430px;
+         height: 240px;
+         &.btx {
+           width: 155px;
+           height: 40px;
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%,-50%);
+           cursor: pointer;
+         }
+       }
+
+     }
      .line {
        width: 233px;
        height: 2px;
@@ -264,226 +361,139 @@ export default {
        }
      }
    }
-    .s2 {
-      margin-bottom: 180px;
-      .s-title {
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-      p {
-        line-height: 30px;
-      }
-    }
-    .s3 {
-      .card {
-        display: flex;
-        .card-1 {
-          margin-bottom: 200px;
-        }
-        &.card-2 {
-          padding-left: 470px;
-          padding-top: 200px;
-        }
-        &.card-3 {
-          margin-left: 0;
-          .imgbox {
-            margin-right: 130px;
-          }
-        }
-        &.card-4 {
-          padding-top: 220px;
-          padding-left: 411px;
-          padding-bottom: 260px;
-          .right {
-            padding-top: 270px;
-          }
-        }
-        .left {
-          margin-right:150px;
-          position: relative;
-          &.pd {
-            /*padding-left: 380px;*/
-            margin-left: 380px;
-          }
-          .img-s {
-            position: absolute;
-            top: 272px;
-            left: -208px;
-          }
-          .img-l {
-            width: 412px;
-            height: 528px;
-          }
-          .img-s {
-            width: 277px;
-            height: 350px;
-          }
-        }
-        .right {
-          padding-right: 358px;
-          padding-top: 67px;
-          .index {
-            font-size: 24px;
-            color: #000;
-            margin-bottom: 10px;
-          }
-          .title {
-            font-size: 58px;
-            line-height: 72px;
-          }
-        }
-        .line-s {
-          width: 67px;
-          height: 1px;
-          background-color: #000;
-          margin-bottom: 60px;
-        }
-        .p-item {
-          padding-left: 27px;
-          position: relative;
-          color: #5F4C21;
-          margin-bottom: 30px;
-          line-height: 24px;
-          font-size: 16px;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          &::after {
-            content: "";
-            position: absolute;
-            width: 12px;
-            height: 10px;
-            background-image: url(../assets/img/iocn-1.png);
-            -webkit-background-size: cover;
-            background-size: cover;
-            background-repeat: no-repeat;
-            left: 0;
-            top: 10px;
-          }
-        }
-      }
-    }
-    .imgbox {
-      position: relative;
-      .i1 {
-        width: 618px;
-        height: 800px;
-      }
-      .i2 {
-        width: 276px;
-        height: 344px;
-        position: absolute;
-        top: 135px;
-        left: -138px;
-      }
-      .i3 {
-        width: 686px;
-        height: 448px;
-      }
-      .i4 {
-        position: absolute;
-        width: 344px;
-        height: 275px;
-        bottom: -138px;
-      }
-      .i5 {
-        width: 618px;
-        height: 802px;
-      }
-      .i6 {
-        position: absolute;
-        width: 272px;
-        height: 340px;
-        top: 324px;
-        left: -136px;
-      }
+   .page {
+     width: 100vw;
+     height: calc(~'100vh - 200px');
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     .item {
+       background-color: rgba(0,0,0,.5);
+       width: 646px;
+       height: 660px;
+       position: absolute;
+       top: 0;
+       right: 100px;
+       padding: 110px 20px 40px 50px;
+       font-size: 18px;
+       color: #fff;
+       .s-img {
+         width: 300px;
+         height: 150px;
+         position: absolute;
+         left: 50px;
+         bottom: 40px;
+       }
+       .i-title {
+         color: #D7C294;
+         font-size: 48px;
+         margin-bottom: 20px;
+       }
+       .i-li {
+         margin-bottom: 20px;
+         line-height: 26px;
+         padding-left: 30px;
+         position: relative;
+         &::after {
+           content: '';
+           position: absolute;
+           left: 0;
+           top: 8px;
+           width: 12px;
+           height: 10px;
+           background-image: url(../assets/img/iocn-1.png);
+           background-size: cover;
+           background-repeat: no-repeat;
+         }
+       }
+     }
+     &.p1 {
+       background-image: url(../assets/img/bg-2.png);
+     }
+     &.p2 {
+       background-image: url(../assets/img/bg-3.png);
+     }
+     &.p3 {
+       background-image: url(../assets/img/bg-4.png);
+     }
+     &.p4 {
+       background-image: url(../assets/img/bg-5.png);
+     }
+   }
+   .down {
+     width: 100vw;
+     height: calc(~'100vh - 60px');
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     background-image: url(../assets/img/bg-6.png);
+     padding: 270px 130px;
+     .text {
+       width: 654px;
+       .d-title {
+          font-size: 48px;
+          color: #D7C294;
+          margin-bottom: 40px;
+       }
+       p {
+         font-size: 24px;
+         line-height: 33px;
+         color: #fff;
+         margin-bottom: 100px;
+       }
+       .qr-box {
+         display: flex;
+         .qr {
+           font-size: 14px;
+           color: #D7C294;
+           margin-right: 60px;
+           .img {
+             width: 120px;
+             height: 120px;
+             background-color: #ccc;
+             margin-bottom: 20px;
+           }
+         }
+       }
+     }
+   }
+   .dot {
+     position: absolute;
+     bottom: 44px;
+     right: 50px;
+     .dot-t {
+       margin-bottom: 30px;
+       font-size: 54px;
+       .arr {
+         img {
+           width: 20px;
+           height: 15px;
+           margin-left: 20px;
+           cursor: pointer;
+         }
+         .pre {
+           margin-bottom: 10px;
+         }
+         .next {
 
-    }
-    .s4 {
-      height: 839px;
-      background-image: url(../assets/img/bg-2.jpg);
-      background-repeat: no-repeat;
-      -webkit-background-size: cover;
-      background-size: cover;
-      padding-top: 170px;
-      padding-left: 200px;
-      &.s5 {
-        height: 980px;
-        padding-top: 258px;
-        background-image: url(../assets/img/bg-3.jpg);
-        color: #fff;
-        .top .line-a {
-          background-color: #fff;
-        }
-        .btn-l {
-          box-shadow: none;
-        }
-      }
-      .top {
-        margin-bottom: 30px;
-        .line-a {
-          width: 90px;
-          height: 2px;
-          background-color: #000;
-        }
-        .text {
-          font-size: 14px;
-          line-height: 20px
-        }
-      }
-      h5 {
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 43px;
-      }
-      p {
-        font-size: 24px;
-        line-height: 33px;
-        width: 654px;
-        margin-bottom: 100px;
-      }
-      .btn-l {
-        padding: 10px 30px;
-        background-color: #D7C294;
-        box-shadow:0px 0px 20px 1px rgba(215,194,148,1);
-        color: #5F4C21;
-        font-size: 14px;
-        margin-right: 80px;
-
-
-      }
-      .btn-a {
-        padding: 10px 30px;
-        color: #D7C294;
-        border: 1px solid #D7C294;
-        font-size: 14px;
-      }
-    }
-    .s6 {
-      padding-top: 107px;
-      h5  {
-        font-size: 48px;
-        line-height: 67px;
-        margin-bottom: 16px;
-      }
-      h6 {
-        font-size: 24px;
-        line-height: 33px;
-        margin-bottom: 106px;
-      }
-      h3 {
-        font-size: 28px;
-        line-height: 40px;
-        margin-bottom: 15px;
-        font-weight: bold;
-      }
-      p {
-        font-size: 22px;
-        line-height: 30px;
-        margin-bottom: 60px;
-      }
-    }
+         }
+       }
+     }
+     .dot-b {
+       display: flex;
+       .circle {
+          width: 10px;
+           height: 10px;
+          border: 1px solid #fff;
+          margin-right: 10px;
+          border-radius: 50%;
+          &.active {
+            background-color: #fff;
+          }
+          &.hide {
+            opacity: 0;
+          }
+       }
+     }
+   }
   }
   .fadeout {
     animation: moveout 1s .1s ease both ;

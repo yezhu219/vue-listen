@@ -7,9 +7,13 @@
         <div class="lange-item">中文</div>
       </div>
     </div>
-    <div class="df-ac">
+    <div class="df-ac pr">
       <div class="btn-w fz12 c-333">Obtain Listen </div>
-      <img src="../assets/img/icon.png" class="icon-s">
+      <img src="../assets/img/icon.png" class="icon-s" @click="showMore">
+      <div class="list" v-show="show">
+        <div class="list-item df-ac"><img src="../assets/img/g.png" alt=""> 技术白皮书</div>
+        <div class="list-item df-ac"> <img src="../assets/img/g.png" alt="">常见问题</div>
+      </div>
     </div>
 
   </div>
@@ -26,7 +30,12 @@ export default {
   },
   data() {
     return {
-
+      show:false
+    }
+  },
+  methods: {
+    showMore() {
+      this.show = !this.show
     }
   }
 }
@@ -83,6 +92,29 @@ export default {
     .icon-s {
       width: 24px;
       height: 21px;
+      cursor: pointer;
+    }
+    .list {
+      position: absolute;
+      width: 220px;
+      height: 200px;
+      background-image: url(../assets/img/bb.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      bottom: -210px;
+      left: 0;
+      padding-top: 70px;
+      padding-left: 20px;
+      .list-item {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 40px;
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 20px;
+        }
+      }
     }
   }
 </style>
